@@ -7,12 +7,11 @@ import org.springframework.beans.factory.annotation.Configurable;
 @Configurable
 public class CatImpl implements Cat {
 
-  @Autowired
-  private CatService catService;
-
+  private final CatService catService;
   private final String name;
 
-  public CatImpl(String name) {
+  public CatImpl(CatService catService, String name) {
+    this.catService = catService;
     this.name = name;
   }
 

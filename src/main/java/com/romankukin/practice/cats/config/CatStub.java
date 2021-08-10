@@ -8,12 +8,11 @@ import org.springframework.beans.factory.annotation.Configurable;
 @Configurable
 public class CatStub implements Cat {
 
-  @Autowired
-  private CatService catService;
-
+  private final CatService catService;
   private final String name;
 
-  public CatStub(String name) {
+  public CatStub(CatService catService, String name) {
+    this.catService = catService;
     this.name = name;
   }
 
